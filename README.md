@@ -39,7 +39,8 @@ This brings up 2 containers, 1 running Elasticsearch, the other Kibana. The next
 But first, we need to set credentials for [Elasticsearch built-in users](https://www.elastic.co/guide/en/elastic-stack-overview/7.3/built-in-users.html).
 
 ```
-$ docker exec -it es bash
+cd elk4ec2
+$ docker-compose exec es bash
 # elasticsearch-setup-passwords auto  
 Initiating the setup of passwords for reserved users elastic,apm_system,kibana,logstash_system,beats_system,remote_monitoring_user.
 The passwords will be randomly generated and printed to the console.
@@ -49,7 +50,8 @@ Please confirm that you would like to continue [y/N]y
 
 Connect to Kibana and set the password for Elasticsearch:
 ```
-$ docker exec -it kibana bash
+cd elk4ec2
+$ docker-compose exec kibana bash
 bash$ kibana-keystore create
 Created Kibana keystore in /usr/share/kibana/data/kibana.keystore
 bash$ kibana-keystore add elasticsearch.username
@@ -59,6 +61,11 @@ Enter value for elasticsearch.password: ********************
 ```
 where the interactively entered `elasticsearch.username` is `kibana`. Use the Kibana password generated on `es` for `elasticsearch.password`.
 For a more extensive explanation about the Kibana keystore, see the [Kibana secure settings manual](https://www.elastic.co/guide/en/kibana/7.3/secure-settings.html).
+
+Kibana does not pick up the newly provided credentials, so you need to restart it. Probably easiest:
+```
+$ docker-compose restart
+``` 
 
 # References
 
