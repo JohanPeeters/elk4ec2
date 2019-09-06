@@ -6,4 +6,4 @@ discovery:
   type: single-node
 xpack:
   security:
-    enabled: false
+    enabled: true
