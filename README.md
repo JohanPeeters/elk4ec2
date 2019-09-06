@@ -65,7 +65,9 @@ For a more extensive explanation about the Kibana keystore, see the [Kibana secu
 Kibana does not pick up the newly provided credentials, so you need to restart it. Probably easiest:
 ```
 $ docker-compose restart
-``` 
+```
+
+If you are running the ELK stack locally, you can now browse to Kibana at `http://localhost:5601` - it will prompt for a username and password. At the moment, there are no end-user accounts yet. In order to set these up via Kibana, you can log in with the `elastic` superuser that you created credentials previously. Subsequently, go to *Security Settings* under *Manage and Administer the Elastic Stack* and click the *Create user* button.
 
 # References
 
