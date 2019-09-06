@@ -1,0 +1,4 @@
+config/elasticsearch/jvm.options
+config/elasticsearch/log4j2.properties
+config/elasticsearch/passwords
+*.private*
